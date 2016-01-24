@@ -36,6 +36,7 @@ public class Sort {
       int numCount = Integer.parseInt(args[0]);
       int[] array = new int[numCount];
       for (int i = 0; i < numCount; i++) {
+        System.out.print("> ");
         array[i] = scanner.nextInt();
       }
       sort(array);
