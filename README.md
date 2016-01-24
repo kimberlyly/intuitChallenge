@@ -9,14 +9,18 @@ Before beginning, please compile all code by typing `make` into your terminal.
 >1,10,5,63,29,71,10,12,44,29,10,-1
 
 File: Sort.java
+
 Usage 1: java Sort test - This will run the above test and more.
+
 Usage 2: java Sort n, where n is the number of numbers you would like to add in the array. Then, you will be able to enter numbers in the command line to populate your array.
 
 ## Question 2
 >Find the 3rd, 58th and 10,001th prime number.
 
 File: PrimeSieve.java
+
 Usage 1: java PrimeSieve test - This will run the above test and more
+
 Usage 2: java PrimeSieve n, where n is the nth prime number you wish to find
 
 ## Question 3
@@ -42,5 +46,7 @@ Usage 2: java PrimeSieve n, where n is the nth prime number you wish to find
     }
 ]}}
 ```
+
 File: JsonPath.java
+
 Usage: java JsonPath element1 [element2...elementN] - You may enter as many elements as you wish to see their paths, but you must enter at least 1 element.
