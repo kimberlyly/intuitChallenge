@@ -21,9 +21,20 @@ public class PrimeSieve {
 	 * Returns: void
 	 */
 	public static void main(String[] args) {
-		int nthPrime = Integer.parseInt(args[0]);
-		int upperBound = getUpperBound(nthPrime);
-		System.out.println(runSieve(upperBound, nthPrime));
+		if (args.length < 1) {
+			System.out.println("Usage 1: java PrimeSieve n, where n is the" +
+								"nth prime number you wish to find.\n" +
+								"Usage 2: java PrimeSieve test, to run the" +
+								"premade test cases.");
+			return;
+		}
+
+		if (args[0].equals("test")) {
+			runTests();
+		} else {
+			int nthPrime = Integer.parseInt(args[0]);
+			System.out.println(runSieve(nthPrime));
+		}
 	}
 
 	/* Method name: runSieve
@@ -43,8 +54,8 @@ public class PrimeSieve {
 	 *             int n - the nth prime number to find
 	 * Returns: int, the nth prime number
 	 */
-	public static int runSieve(int upper, int n) {
-		
+	public static int runSieve(int n) {
+		int upper = getUpperBound(n); // get upperBound
 		// declare a boolean array to encompass 2 to n.
 		boolean[] isPrime = new boolean[upper + 1];
 		
@@ -95,5 +106,41 @@ public class PrimeSieve {
 			// 2nd, and 3rd primes
 			return DEFAULT_ARRAY_SIZE;
 		}
+	}
+
+	/* Method name: runTests
+	 * Description: This method runs the default tests
+	 * Parameters: None.
+	 * Returns: None.
+	 */
+	public static void runTests() {
+		// TEST 1: 3rd prime number
+		int test1expected = 5;
+		int test1actual = runSieve(3);
+		boolean correct1 = test1expected == test1actual ? true : false;
+		System.out.println("n = 3 - Expected: " + test1expected
+							 	+ " Actual: " + test1actual 
+							 	+ " Correct: " + correct1);
+		// TEST 2: 58th prime number
+		int test2expected = 271;
+		int test2actual = runSieve(58);
+		boolean correct2 = test2expected == test2actual ? true : false;
+		System.out.println("n = 58 - Expected: " + test2expected
+							 	+ " Actual: " + test2actual 
+							 	+ " Correct: " + correct2);
+		// TEST 3: 3rd prime number
+		int test3expected = 104743;
+		int test3actual = runSieve(10001);
+		boolean correct3 = test3expected == test3actual ? true : false;
+		System.out.println("n = 10001 - Expected: " + test3expected
+							 	+ " Actual: " + test3actual 
+							 	+ " Correct: " + correct3);
+		// TEST 4: Invalid prime number
+		int test4expected = -1;
+		int test4actual = runSieve(-4032);
+		boolean correct4 = test4expected == test4actual ? true : false;
+		System.out.println("n = -1 - Expected: " + test4expected
+								+ " Actual: " + test4actual
+								+ " Correct: " + correct4);
 	}
 }
